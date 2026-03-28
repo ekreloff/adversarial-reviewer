@@ -12,24 +12,29 @@ This skill forces a perspective shift through three hostile reviewers — The Sa
 
 ## Install
 
-### Claude Code (recommended)
+### Via skills CLI
 
 ```bash
-# Clone and add to your skills directory
+npx skills add ekreloff/adversarial-reviewer
+```
+
+### Via git clone
+
+```bash
 git clone https://github.com/ekreloff/adversarial-reviewer.git ~/.claude/skills/adversarial-reviewer
 ```
 
-Or copy `SKILL.md` directly:
+### Via curl (one-liner)
 
 ```bash
-mkdir -p ~/.claude/skills/adversarial-reviewer
-curl -sL https://raw.githubusercontent.com/ekreloff/adversarial-reviewer/main/SKILL.md \
+mkdir -p ~/.claude/skills/adversarial-reviewer && curl -sL \
+  https://raw.githubusercontent.com/ekreloff/adversarial-reviewer/main/SKILL.md \
   -o ~/.claude/skills/adversarial-reviewer/SKILL.md
 ```
 
 ### Manual
 
-Copy the contents of `SKILL.md` into your project's `.claude/skills/` directory or your global `~/.claude/skills/` directory.
+Copy `SKILL.md` into your project's `.claude/skills/` directory or your global `~/.claude/skills/` directory.
 
 ## Usage
 
