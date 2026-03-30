@@ -1,0 +1,82 @@
+name: "Request a Security Review"
+description: "Request an adversarial security review of your code"
+title: "[Review Request] "
+labels: ["review-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Request a Security Review
+
+        Get an adversarial code review using three hostile personas (The Saboteur, The New Hire, The Security Auditor). Each reviewer is required to find at least one real issue.
+
+        **Pricing:**
+        - Open-source projects: **Free** (findings published as gist)
+        - Single file review: **$5** (private delivery)
+        - Full library review: **$25** (private delivery + written report)
+
+        For paid reviews, we'll follow up with payment details after scoping.
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: Repository URL
+      description: "Link to the GitHub repo or specific file to review"
+      placeholder: "https://github.com/org/repo"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Review Scope
+      description: "What should be reviewed?"
+      options:
+        - "Single file (specify below)"
+        - "Specific directory or module"
+        - "Full library / entire codebase"
+        - "Recent changes (last N commits)"
+    validations:
+      required: true
+
+  - type: input
+    id: target_files
+    attributes:
+      label: Target Files (if applicable)
+      description: "Specific files or directories to focus on"
+      placeholder: "src/auth.ts, src/middleware/"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: review_type
+    attributes:
+      label: Review Focus
+      description: "What matters most?"
+      options:
+        - "Security vulnerabilities (OWASP, auth, injection)"
+        - "Production reliability (error handling, edge cases)"
+        - "General code quality (all three personas)"
+      default: 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: "Any context about the codebase, known concerns, or what prompted this request"
+      placeholder: "We recently refactored our auth middleware and want a second opinion before deploying..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: visibility
+    attributes:
+      label: Results Visibility
+      description: "Should review results be public or private?"
+      options:
+        - "Public (free for open-source — findings published as gist)"
+        - "Private (paid — delivered via email or private gist)"
+    validations:
+      required: true
