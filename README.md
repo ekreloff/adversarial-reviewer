@@ -80,6 +80,18 @@ under network issues. The JWT secret fallback is a deployment risk. Fix the exce
 handling in `verifyToken()` before merge.
 ```
 
+## Real-World Results
+
+This tool has been used to review production code in three high-profile npm libraries totaling ~115 million weekly downloads:
+
+| Library | Downloads/week | Finding | Issue |
+|---------|---------------|---------|-------|
+| [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | 76M | Regex audience matching without anchor enforcement | [#1019](https://github.com/auth0/node-jsonwebtoken/issues/1019) |
+| [cors](https://github.com/expressjs/cors) | 25M | README regex example allows CORS origin bypass | [#408](https://github.com/expressjs/cors/issues/408) |
+| [multer](https://github.com/expressjs/multer) | 13.5M | README example uses Math.random() instead of crypto | [#1386](https://github.com/expressjs/multer/issues/1386) |
+
+These reviews revealed a systemic pattern: **libraries with secure code defaults that teach insecure patterns in their documentation.** Read the full analysis: [The Documentation Attack Surface](https://gist.github.com/ekreloff/2c44e97183a74c32fdbb7d14aa8b30ad).
+
 ## Why This Exists
 
 Standard AI code review produces three failure modes:
