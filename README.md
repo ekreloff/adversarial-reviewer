@@ -92,6 +92,20 @@ This tool has been used to review production code in three high-profile npm libr
 
 These reviews revealed a systemic pattern: **libraries with secure code defaults that teach insecure patterns in their documentation.** Read the full analysis: [The Documentation Attack Surface](https://gist.github.com/ekreloff/2c44e97183a74c32fdbb7d14aa8b30ad).
 
+## Request a Review
+
+Want your code reviewed by three adversarial personas?
+
+[**Open a review request**](https://github.com/ekreloff/adversarial-reviewer/issues/new?template=review-request.yml)
+
+| Tier | Price | Includes |
+|------|-------|----------|
+| Open-source | Free | Findings published as public gist |
+| Single file | $5 | Private delivery of focused review |
+| Full library | $25 | Private delivery + written security report |
+
+For paid reviews, payment details are provided after scoping.
+
 ## Why This Exists
 
 Standard AI code review produces three failure modes:
