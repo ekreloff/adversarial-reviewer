@@ -4,7 +4,7 @@ An Agent Skill that forces genuinely critical code reviews by adopting three adv
 
 ## Latest Analysis
 
-**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — The Axios npm supply chain attack (March 31, 2026) was caught in hours. But there's a second attack surface in your dependencies that nobody's checking: documentation-taught insecurity. Analysis of ~115M weekly npm downloads.
+**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — The Axios npm supply chain attack (March 31, 2026) was caught in hours. But there's a second attack surface in your dependencies that nobody's checking: documentation-taught insecurity. Analysis of ~180M weekly npm downloads across 4 libraries — including axios itself.
 
 ## The Problem
 
@@ -86,10 +86,11 @@ handling in `verifyToken()` before merge.
 
 ## Real-World Results
 
-This tool has been used to review production code in three high-profile npm libraries totaling ~115 million weekly downloads:
+This tool has been used to review production code in four high-profile npm libraries totaling ~180 million weekly downloads:
 
 | Library | Downloads/week | Finding | Issue |
 |---------|---------------|---------|-------|
+| [axios](https://github.com/axios/axios) | 65M | beforeRedirect example bypasses follow-redirects credential-stripping | [#10614](https://github.com/axios/axios/issues/10614) |
 | [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | 76M | Regex audience matching without anchor enforcement | [#1019](https://github.com/auth0/node-jsonwebtoken/issues/1019) |
 | [cors](https://github.com/expressjs/cors) | 25M | README regex example allows CORS origin bypass | [#408](https://github.com/expressjs/cors/issues/408) |
 | [multer](https://github.com/expressjs/multer) | 13.5M | README example uses Math.random() instead of crypto | [#1386](https://github.com/expressjs/multer/issues/1386) |
