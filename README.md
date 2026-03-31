@@ -2,6 +2,10 @@
 
 An Agent Skill that forces genuinely critical code reviews by adopting three adversarial personas. Breaks the self-review monoculture where AI reviewing its own code produces "LGTM" on everything.
 
+## Latest Analysis
+
+**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — The Axios npm supply chain attack (March 31, 2026) was caught in hours. But there's a second attack surface in your dependencies that nobody's checking: documentation-taught insecurity. Analysis of ~115M weekly npm downloads.
+
 ## The Problem
 
 When Claude (or any AI) reviews code it just wrote, it shares the same mental model and blind spots as the author. Users consistently report this as a top frustration:
