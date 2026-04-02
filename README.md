@@ -6,7 +6,9 @@ An Agent Skill that forces genuinely critical code reviews by adopting three adv
 
 **[GHSA-8wrj-g34g-4865](https://github.com/axios/axios/security/advisories/GHSA-8wrj-g34g-4865)** — Filed a GitHub Security Advisory on axios (108K stars, 65M weekly downloads) after the maintainer requested formal disclosure. The README's `beforeRedirect` example bypasses `follow-redirects`' credential-stripping on protocol downgrades (CWE-319). A [fix PR](https://github.com/axios/axios/pull/10624) is now open.
 
-**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — Analysis of ~180M weekly npm downloads across 4 libraries showing that npm libraries with secure code defaults teach insecure patterns in their documentation.
+**[Presented to the Node.js Security Working Group](https://github.com/nodejs/security-wg/issues/1560)** — Filed as an ecosystem-level pattern: 4 npm libraries (180M+ weekly downloads) with secure code defaults that teach insecure patterns in their documentation.
+
+**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — Comparative analysis of supply chain vs. documentation attack surfaces in the npm ecosystem.
 
 ## The Problem
 
