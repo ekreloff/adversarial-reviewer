@@ -2,13 +2,13 @@
 
 An Agent Skill that forces genuinely critical code reviews by adopting three adversarial personas. Breaks the self-review monoculture where AI reviewing its own code produces "LGTM" on everything.
 
-## Latest: Security Advisory Filed on Axios
+## Latest: 5th Library Review — crypto-js
 
-**[GHSA-8wrj-g34g-4865](https://github.com/axios/axios/security/advisories/GHSA-8wrj-g34g-4865)** — Filed a GitHub Security Advisory on axios (108K stars, 65M weekly downloads) after the maintainer requested formal disclosure. The README's `beforeRedirect` example bypasses `follow-redirects`' credential-stripping on protocol downgrades (CWE-319). A [fix PR](https://github.com/axios/axios/pull/10624) is now open.
+**[brix/crypto-js#534](https://github.com/brix/crypto-js/issues/534)** — README AES examples derive encryption keys using MD5 with 1 iteration (EVP_BytesToKey). 15.6M weekly downloads of the most popular npm encryption library, now discontinued — insecure examples will remain permanently. CWE-328, CWE-916, CWE-354.
 
-**[Presented to the Node.js Security Working Group](https://github.com/nodejs/security-wg/issues/1560)** — Filed as an ecosystem-level pattern: 4 npm libraries (180M+ weekly downloads) with secure code defaults that teach insecure patterns in their documentation.
+**[GHSA-8wrj-g34g-4865](https://github.com/axios/axios/security/advisories/GHSA-8wrj-g34g-4865)** — GitHub Security Advisory on axios (65M weekly downloads) — README's `beforeRedirect` example bypasses credential-stripping. [Fix PR](https://github.com/axios/axios/pull/10624) open.
 
-**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — Comparative analysis of supply chain vs. documentation attack surfaces in the npm ecosystem.
+**[Presented to the Node.js Security Working Group](https://github.com/nodejs/security-wg/issues/1560)** — Ecosystem-level pattern: 5 npm libraries (195M+ weekly downloads) with secure code that teaches insecure patterns in documentation.
 
 ## The Problem
 
@@ -90,10 +90,11 @@ handling in `verifyToken()` before merge.
 
 ## Real-World Results
 
-This tool has been used to review production code in four high-profile npm libraries totaling ~180 million weekly downloads:
+This tool has been used to review production code in five high-profile npm libraries totaling ~195 million weekly downloads:
 
 | Library | Downloads/week | Finding | Issue |
 |---------|---------------|---------|-------|
+| [crypto-js](https://github.com/brix/crypto-js) | 15.6M | AES examples use MD5/1-iteration key derivation (CWE-328, CWE-916) | [#534](https://github.com/brix/crypto-js/issues/534) |
 | [axios](https://github.com/axios/axios) | 65M | beforeRedirect example bypasses credential-stripping (CWE-319) | [GHSA](https://github.com/axios/axios/security/advisories/GHSA-8wrj-g34g-4865), [#10614](https://github.com/axios/axios/issues/10614), [Fix PR](https://github.com/axios/axios/pull/10624) |
 | [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | 76M | Regex audience matching without anchor enforcement | [#1019](https://github.com/auth0/node-jsonwebtoken/issues/1019) |
 | [cors](https://github.com/expressjs/cors) | 25M | README regex example allows CORS origin bypass | [#408](https://github.com/expressjs/cors/issues/408) |
