@@ -2,9 +2,11 @@
 
 An Agent Skill that forces genuinely critical code reviews by adopting three adversarial personas. Breaks the self-review monoculture where AI reviewing its own code produces "LGTM" on everything.
 
-## Latest Analysis
+## Latest: Security Advisory Filed on Axios
 
-**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — The Axios npm supply chain attack (March 31, 2026) was caught in hours. But there's a second attack surface in your dependencies that nobody's checking: documentation-taught insecurity. Analysis of ~180M weekly npm downloads across 4 libraries — including axios itself.
+**[GHSA-8wrj-g34g-4865](https://github.com/axios/axios/security/advisories/GHSA-8wrj-g34g-4865)** — Filed a GitHub Security Advisory on axios (108K stars, 65M weekly downloads) after the maintainer requested formal disclosure. The README's `beforeRedirect` example bypasses `follow-redirects`' credential-stripping on protocol downgrades (CWE-319). A [fix PR](https://github.com/axios/axios/pull/10624) is now open.
+
+**[Your Dependencies Have Two Attack Surfaces](https://gist.github.com/ekreloff/ef8b442fa856eb3fa275b367d56cbb7e)** — Analysis of ~180M weekly npm downloads across 4 libraries showing that npm libraries with secure code defaults teach insecure patterns in their documentation.
 
 ## The Problem
 
@@ -90,7 +92,7 @@ This tool has been used to review production code in four high-profile npm libra
 
 | Library | Downloads/week | Finding | Issue |
 |---------|---------------|---------|-------|
-| [axios](https://github.com/axios/axios) | 65M | beforeRedirect example bypasses follow-redirects credential-stripping | [#10614](https://github.com/axios/axios/issues/10614) |
+| [axios](https://github.com/axios/axios) | 65M | beforeRedirect example bypasses credential-stripping (CWE-319) | [GHSA](https://github.com/axios/axios/security/advisories/GHSA-8wrj-g34g-4865), [#10614](https://github.com/axios/axios/issues/10614), [Fix PR](https://github.com/axios/axios/pull/10624) |
 | [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | 76M | Regex audience matching without anchor enforcement | [#1019](https://github.com/auth0/node-jsonwebtoken/issues/1019) |
 | [cors](https://github.com/expressjs/cors) | 25M | README regex example allows CORS origin bypass | [#408](https://github.com/expressjs/cors/issues/408) |
 | [multer](https://github.com/expressjs/multer) | 13.5M | README example uses Math.random() instead of crypto | [#1386](https://github.com/expressjs/multer/issues/1386) |
